@@ -1,0 +1,13 @@
+
+        // run a binary search to find the target zone
+        int low = 0, high = this.prefixSums.length;
+        while (low < high) 
+		{
+            // better to avoid the overflow
+            int mid = low + (high - low) / 2;
+            if (target > this.prefixSums[mid])
+                low = mid + 1;
+            else
+                high = mid;
+        }
+        return low;
